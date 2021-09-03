@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') %>
+
+    <form action="/recipes/new" method="POST">
+        <div class="title">
+            <label for="title">Title:</label>
+            <input type="text" name="recipe[title]" id="title" maxlength="21" required>
+        </div>
+
+
+        <div class="ingredients">
+            <label for="ingredients">Ingredients:</label>
+            <div class="ingredient" id="ing1Div">
+                <input id="number1" name="recipe[ingredients][1][number]" type="hidden" value="1">
+                <input class="input" type="text" id="ing1" name="recipe[ingredients][1][ingredient]" required>
+                <button class="delete-btn" type="button" id="deleteIng1" value="1">x</button>
+            </div>
+        </div>
+        <button class="add-btn" id="addButtonIng" type="button">Add Ingredient</button>
+
+
+        <div class="steps">
+            <label for="steps">Method:</label>
+            <div class="step" id="step1Div">
+                <input id="number1" name="recipe[steps][1][number]" type="hidden" value="1">
+                <label for="step1">Step 1:</label>
+                <textarea type="text" id="step1" name="recipe[steps][1][step]" required></textarea>
+                <button class="delete-btn" type="button" id="deleteStep1" value="1">x</button>
+            </div>
+        </div>
+        <button class="add-btn" id="addButton" type="button">Add Step</button>
+
+        <button class="submit">Create Recipe</button>
+    </form>
+
+    <a id="cancel" href="/recipes">Cancel</a>
+
+    <script src="/new/steps.js"></script>
+    <script src="/new/ingredients.js"></script>

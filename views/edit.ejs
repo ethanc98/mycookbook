@@ -1,0 +1,64 @@
+<% layout('layouts/boilerplate') %>
+
+    <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+        <div class="title">
+            <label for="title">Title:</label>
+            <input type="text" name="recipe[title]" id="title" value="<%= recipe.title %>">
+        </div>
+
+
+        <div class="ingredients">
+            <label for="ingredients">Ingredients:</label>
+            <% for (i=1; i <=ingNum; i++) { %>
+                <% let thingy2=recipe.ingredients[i-1] %>
+                    <% if (thingy2 !==undefined) { %>
+                        <div class="ingredient" id="ing<%= i %>Div">
+                            <input id="number<%= i %>" name="recipe[ingredients][<%= i %>][number]" type="hidden"
+                                value="<%= i %>">
+                            <input class="input" type="text" id="ing<%= i %>"
+                                name="recipe[ingredients][<%= i %>][ingredient]" value="<%= thingy2.ingredient %>">
+                            <button class="delete-btn" type="button" id="deleteIng<%= i %>" value="<%= i %>">x</button>
+                        </div>
+                        <%} %>
+                            <% } %>
+        </div>
+        <button class="add-btn" id="addButtonIng" type="button">Add Ingredient</button>
+
+
+
+        <div class="steps">
+            <label for="steps">Method:</label>
+            <!-- <div class="step" id="step1Div">
+                <input id="number1" name="recipe[steps][1][number]" type="hidden" value="1">
+                <label for="step1">Step 1:</label>
+                <textarea type="text" id="step1" name="recipe[steps][1][step]"><%= recipe.steps[0].step %></textarea>
+                <button type="button" id="deleteStep1" value="1">x</button>
+            </div> -->
+
+            <% for (i=1; i <=stepNum; i++) { %>
+                <% let thingy=recipe.steps[i-1] %>
+                    <% if (thingy !==undefined) { %>
+                        <div class="step" id="step<%= i %>Div">
+                            <input id="number<%= i %>" name="recipe[steps][<%= i %>][number]" type="hidden"
+                                value="<%= i %>">
+                            <label for="step<%= i %>">Step <%= i %>: </label>
+                            <textarea type="text" id="step<%= i %>"
+                                name="recipe[steps][<%= i %>][step]"><%= thingy.step %></textarea>
+                            <button class="delete-btn" type="button" id="deleteStep<%= i %>" value="<%= i %>">x</button>
+                        </div>
+                        <%} %>
+                            <% } %>
+        </div>
+        <button class="add-btn" id="addButton" type="button">Add Step</button>
+
+        <button class="submit">Update Recipe</button>
+        <span id="error" class="error-message"></span>
+    </form>
+
+    <a id="cancel" href="/recipes/<%=recipe._id%>">Cancel</a>
+    <script>
+        const stepNumCopy = <%=stepNum%>;
+        const ingNumCopy = <%=ingNum%>
+    </script>
+    <script src="/edit/steps.js"></script>
+    <script src="/edit/ingredients.js"></script>

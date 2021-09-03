@@ -1,0 +1,111 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    
+    padding-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    /* padding: 30px 10%; */
+}
+
+
+.navLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.navLinks > * {
+    width: 30vw;
+    text-align: center;
+}
+
+.navLinks li{
+    display: inline-block;
+    /* margin-right: 30px; */
+    /* flex: auto; */
+}
+
+.navLinks li a {
+    border-bottom: 0.2rem solid transparent;
+    /* padding-top: 10px; */
+}
+
+#nav1 {
+    text-align: start;
+}
+
+#nav3 {
+    text-align: end;
+}
+
+.navLink:hover {
+    color: rgba(255,255,255,0.5);
+    border-bottom-color: rgba(255,255,255,0.5);
+}
+
+ul h1 {
+    /* flex: auto; */
+    display: inline-block;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 0 0.05rem 0.3rem rgba(0,0,0,1);
+    font-size: 2em;
+    color: white;
+    left: 20px;
+    
+    /* margin-left: 150px; */
+}
+
+main {
+    width: 750px;
+    margin: 100px auto 0;
+    /* background-color: green; */
+    text-align: center;
+}
+
+#link {
+    display: inline-block;
+    font-size: 0.8em;
+    /* width: 200px; */
+    /* height: 35px; */
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #e74c3c;
+    color: white;
+    text-align: center;
+}
+
+#recipes {
+    margin-top: 100px;
+}
+
+.recipe {
+    /* margin-top: 50px; */
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    border-bottom: solid #888 2px;
+}
+
+.recipe-title {
+    font-size: 2em;
+}
+
+.recipe a {
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: 5px;
+    background-color: #68ac35;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+}
