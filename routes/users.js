@@ -88,8 +88,10 @@ router.post('/forgot', (req, res, next) => {
                 secure: true,
                 port: 465,
                 auth: {
-                    user: process.env.ZOHOU,
-                    pass: process.env.NMPW,
+                    // user: process.env.ZOHOU,
+                    user: '***REMOVED***',
+                    // pass: process.env.NMPW,
+                    pass: '***REMOVED***',
                 }
             });
             const mailOptions = {
