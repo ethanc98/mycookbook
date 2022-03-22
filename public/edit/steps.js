@@ -43,9 +43,9 @@ const createStep = (btns, textValue, txt) => {
     num = num + 1;
     const newStep = `<div class="step" id="step${num}Div">
         <input id="number${num}" name="recipe[steps][${num}][number]" type="hidden" value="${num}">
-        <label for="step${num}">Step ${num}: </label>
-        <textarea type="text" id="step${num}" name="recipe[steps][${num}][step]"></textarea>
-        <button class="delete-btn" type="button" id="deleteStep${num}" value="${num}">x</button>
+        <label class="step__label" for="step${num}">Step ${num}: </label>
+        <textarea class="input" type="text" id="step${num}" name="recipe[steps][${num}][step]" required></textarea>
+        <button class="button button_white button_delete" type="button" id="deleteStep${num}" value="${num}">x</button>
         </div>`;
     steps.innerHTML += newStep;
     textValue[num - 1] = '';
@@ -62,9 +62,9 @@ const updateHTML = (btns, textValue, txt, stepValue) => {
             j = (btns[i].value) - 1;
             btns[i].parentElement.outerHTML = `<div class="step" id="step${j}Div">
             <input id="number${j}" name="recipe[steps][${j}][number]" type="hidden" value="${j}">
-            <label for="step${j}">Step ${j}: </label>
-            <textarea type="text" id="step${j}" name="recipe[steps][${j}][step]"></textarea>
-            <button class="delete-btn" type="button" id="deleteStep${j}" value="${j}">x</button>
+            <label class="step__label" for="step${j}">Step ${j}: </label>
+            <textarea class="input" type="text" id="step${j}" name="recipe[steps][${j}][step]" required></textarea>
+            <button class="button button_white button_delete" type="button" id="deleteStep${j}" value="${j}">x</button>
             </div>`;
         }
     } for (let i = 0; i < btns.length; i++) {

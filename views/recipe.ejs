@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myCookbook | <%= recipe.title %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/964b4f6dfb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/recipes.css">
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container_recipe">
+        <h2 class="heading heading_recipe recipe__recipe">
+            <%= recipe.title %>
+        </h2>
+        <h3 class="heading">Ingredients</h3>
+        <div class="recipe__ingredients">
+            <% for(let ingredient of recipe.ingredients) {%>
+                <div class="ingredient">
+                    <%= ingredient.ingredient %>
+                </div>
+            <% } %>
+            </div>
+        <h3 class="heading">Method</h3>
+        <div class="recipe__steps">
+            <% for(let step of recipe.steps) {%>
+                <div class="step">
+                    Step <%= Math.floor(step.number) %>: <%= step.step %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <div class="links">    
+        <div class="links__overlay"></div>
+        <form class="link link_delete" action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+            <button class="link__button" type="submit" id="delete"><i class="far fa-trash-alt"></i></button>
+        </form>
+        <a class="link link_edit" href="/recipes/<%=recipe._id%>/edit"><i class="far fa-edit"></i></a>
+        <a class="link link_return" href="/recipes"><i class="fas fa-undo"></i></a>
+    </div>
+    <%- include('./partials/footer') %>
+    <script src="/alert.js"></script>
+    <script src="/bottomNav.js"></script>
+</body>
+</html>

@@ -39,7 +39,7 @@ router.post('/new', isLoggedIn, validateRecipe, catchAsync(async (req, res) => {
 
 router.get('/:id', isLoggedIn, catchAsync(async (req, res) => {
     const recipe = await Recipe.findById(req.params.id)
-    res.render('show', { recipe });
+    res.render('recipe', { recipe });
 }));
 
 router.put('/:id', isEmpty, isLoggedIn, validateRecipe, catchAsync(async (req, res) => {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myCookbook | Account Recovery</title>
+    <script src="https://kit.fontawesome.com/964b4f6dfb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/entry.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="margin">
+        <div class="title title_entry">
+            <h1>myCookbook</h1>
+        </div>
+        <div class="content">
+            <div class="header">
+                <h2>Reset your password</h2>
+            </div>
+            <p class="form__text">
+                An email is on its way to <b>
+                    <%= email %>                    
+                </b> with instructions for resetting your password.
+            </p>
+            <p class="form__text">If you do not receive the email soon, check that the email address you entered is
+                correct, and that the email has not been moved to your
+                spam folder.
+            </p>
+            <a class="return-btn submit" href="/login">Return to Login</a>
+        </div>
+    </div>
+    <script src="./entry.js"></script>
+</body>
+</html>

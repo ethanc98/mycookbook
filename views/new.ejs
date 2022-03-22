@@ -1,38 +1,50 @@
-<% layout('layouts/boilerplate') %>
+<!DOCTYPE html>
+<html lang="en">
 
-    <form action="/recipes/new" method="POST">
-        <div class="title">
-            <label for="title">Title:</label>
-            <input type="text" name="recipe[title]" id="title" maxlength="21" required>
-        </div>
-
-
-        <div class="ingredients">
-            <label for="ingredients">Ingredients:</label>
-            <div class="ingredient" id="ing1Div">
-                <input id="number1" name="recipe[ingredients][1][number]" type="hidden" value="1">
-                <input class="input" type="text" id="ing1" name="recipe[ingredients][1][ingredient]" required>
-                <button class="delete-btn" type="button" id="deleteIng1" value="1">x</button>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myCookbook | New Recipe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/964b4f6dfb.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/editor.css">
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+        <form action="/recipes/new" method="POST">
+            <div class="name recipe__section">
+                <label class="recipe__header" for="name">Recipe Name:</label>
+                <input class="input input_title" type="text" name="recipe[title]" id="title" maxlength="21" required>
             </div>
-        </div>
-        <button class="add-btn" id="addButtonIng" type="button">Add Ingredient</button>
-
-
-        <div class="steps">
-            <label for="steps">Method:</label>
-            <div class="step" id="step1Div">
-                <input id="number1" name="recipe[steps][1][number]" type="hidden" value="1">
-                <label for="step1">Step 1:</label>
-                <textarea type="text" id="step1" name="recipe[steps][1][step]" required></textarea>
-                <button class="delete-btn" type="button" id="deleteStep1" value="1">x</button>
+            <div class="ingredients recipe__section">
+                <label class="recipe__header" for="ingredients">Ingredients:</label>
+                <div class="ingredient" id="ing1Div">
+                    <input id="number1" name="recipe[ingredients][1][number]" type="hidden" value="1">
+                    <input class="input" type="text" id="ing1" name="recipe[ingredients][1][ingredient]" required>
+                    <button class="button button_white button_delete" type="button" id="deleteIng1" value="1">x</button>
+                </div>
             </div>
-        </div>
-        <button class="add-btn" id="addButton" type="button">Add Step</button>
-
-        <button class="submit">Create Recipe</button>
-    </form>
-
-    <a id="cancel" href="/recipes">Cancel</a>
-
+            <button class="button button_white button_add" id="addButtonIng" type="button">Add Ingredient</button>
+            <div class="steps recipe__section">
+                <label class="recipe__header" for="steps">Method:</label>
+                <div class="step" id="step1Div">
+                    <input id="number1" name="recipe[steps][1][number]" type="hidden" value="1">
+                    <label class="step__label" for="step1">Step 1:</label>
+                    <textarea class="input" type="text" id="step1" name="recipe[steps][1][step]" required></textarea>
+                    <button class="button button_white button_delete" type="button" id="deleteStep1" value="1">x</button>
+                </div>
+            </div>
+            <button class="button button_white button_add" id="addButton" type="button">Add Step</button>
+            <button class="button button_white button_submit">Create Recipe</button>
+        </form>
+        <a class="button button_white button_cancel" href="/recipes">Cancel</a>
+    </div>
+    <%- include('./partials/footer') %>
     <script src="/new/steps.js"></script>
     <script src="/new/ingredients.js"></script>
+</body>
+</html>

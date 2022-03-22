@@ -1,0 +1,95 @@
+* {
+    text-decoration: none;
+    outline: none;
+    border: none;
+
+}
+main {
+    width: 750px;
+    margin: 100px auto 0;
+    text-align: center;
+}
+
+
+form > * {
+    width: 100%;
+}
+.recipe__section:not(:first-of-type)  {
+    margin-top: 120px;
+}
+.recipe__header {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.step, .ingredient, .input_title {
+    margin-top: 50px;
+}
+.input {
+    width: 100%;
+    resize: vertical;
+    padding: 5px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    min-height: 2rem;
+}
+.ingredient > *, .step > * {
+    display: block;
+}
+.step__label {
+    text-align: start;
+    font-weight: bolder;
+}
+
+/* miscellaneous */
+    .button_add {
+        height: 2rem;
+        margin-top: 1rem;
+        background-color: #41b853;
+    }
+    .button_delete {
+        height: 1rem;
+        line-height: 1rem;
+        margin-left: auto;
+        width: 30px;
+        margin-top: 8px;
+        background-color: #f40058;
+    }
+    .button_submit {
+        margin-top: 100px;
+        width: auto;
+        padding: 1.8rem 3rem;
+        background-color: #41b853;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .button_cancel {
+        float: right;
+        margin-top: 20px;
+        border-radius: 4px;
+        width: 85px;
+        height: 28px;
+        line-height: 28px;
+        background-color: #f40058;
+        font-size: 1rem;
+    }
+    
+
+@media (min-width: 600px) {
+    .button_add:hover {
+        transition: all 200ms ease;
+        background-color: rgba(65, 184, 83, .5);
+    }
+    .button_delete:hover {
+        transition: all 200ms ease;
+        background-color: rgba(244, 0, 88, .5);
+    }
+    .button_submit:hover {
+        transition: all 200ms ease;
+        background-color: rgba(65, 184, 83, .5);
+    }
+    .button_cancel:hover {
+        transition: all 200ms ease;
+        background-color: rgba(244, 0, 88, .5);
+    }
+}

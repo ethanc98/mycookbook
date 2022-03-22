@@ -1,111 +1,149 @@
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
-    color: black;
+    color: #414042;
+    color: #eee;
 }
 
-header {
-    
-    padding-top: 30px;
-    margin-left: 100px;
-    margin-right: 100px;
-    /* padding: 30px 10%; */
-}
-
-
-.navLinks {
+.container_recipe {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    list-style: none;
+    min-height: 500px;
+    width: 50rem;
+    max-width: 940px;
+    margin: 3rem auto 0 auto;
 }
-
-.navLinks > * {
-    width: 30vw;
+.heading {
+    margin-top: 50px;
+}
+.heading_recipe {
+    font-size: 3rem;
+    text-decoration: none;
+    margin-top: unset;
+    padding-left: 2.5rem;
+    width: 100%;
+    text-align: left;
+}
+.recipe__recipe {
     text-align: center;
+    padding: 0;
+    word-break: break-all;
 }
-
-.navLinks li{
-    display: inline-block;
-    /* margin-right: 30px; */
-    /* flex: auto; */
-}
-
-.navLinks li a {
-    border-bottom: 0.2rem solid transparent;
-    /* padding-top: 10px; */
-}
-
-#nav1 {
-    text-align: start;
-}
-
-#nav3 {
-    text-align: end;
-}
-
-.navLink:hover {
-    color: rgba(255,255,255,0.5);
-    border-bottom-color: rgba(255,255,255,0.5);
-}
-
-ul h1 {
-    /* flex: auto; */
-    display: inline-block;
-    font-family: 'Pacifico', cursive;
-    text-shadow: 0 0.05rem 0.3rem rgba(0,0,0,1);
-    font-size: 2em;
-    color: white;
-    left: 20px;
-    
-    /* margin-left: 150px; */
-}
-
-main {
-    width: 750px;
-    margin: 100px auto 0;
-    /* background-color: green; */
-    text-align: center;
-}
-
-#link {
-    display: inline-block;
-    font-size: 0.8em;
-    /* width: 200px; */
-    /* height: 35px; */
-    padding: 8px;
-    border-radius: 4px;
-    background-color: #e74c3c;
-    color: white;
-    text-align: center;
-}
-
-#recipes {
-    margin-top: 100px;
-}
-
-.recipe {
-    /* margin-top: 50px; */
+.recipes__recipe {
     display: flex;
     justify-content: space-between;
     height: 100px;
-    border-bottom: solid #888 2px;
+    line-height: 100px;
+    border-radius: 3rem;
+    border: solid #ccc 1.5px;
+    margin-top: 2rem;
+}
+.recipes__recipe:hover {
+    transition: all 300ms ease;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
-.recipe-title {
-    font-size: 2em;
+.ingredient {
+    margin-top: 1rem;
+}
+.step {
+    margin-top: 1rem;
+    line-height: 1.6rem;
 }
 
-.recipe a {
+.button_show {
     height: fit-content;
     margin-top: auto;
     margin-bottom: 5px;
-    background-color: #68ac35;
-    color: white;
+    background-color: #41b853;
     padding: 5px;
-    border-radius: 4px;
+}
+
+
+/* bottom nav (return/edit/delete) */
+    .links {
+        border-radius: 25px;
+        width: 80vw;
+        max-width: 1140px;
+        margin: 2rem auto 0 auto;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        background: linear-gradient(90deg, #41b853 10%, #f0a541 55%, #f40058 85%);
+    }
+    .links__overlay {
+        border-radius: 25px;
+        transition: 800ms;
+        position: absolute;
+        opacity: 0;
+        height: 35px;
+        width: 80vw;
+        max-width: 1140px;
+        z-index: -1;
+    }
+    .link {
+        display: inline-block;
+        width: 34%;
+        height: 35px;
+        cursor: pointer;
+        line-height: 35px;
+        border: unset;
+        background: transparent;
+        text-align: center;
+        z-index: 2;
+    }
+    .link_delete {
+        line-height: unset;
+    }
+    .link__button {
+        position: relative;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+    }
+    .link_create {
+        width: 500px;
+        height: 80px;
+        line-height: 80px;
+        background-color: #f0a541;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    i {
+        font-size: 0.9rem;
+    }
+    .delete_banner {
+        position: absolute;
+    }
+    .bg-orange {
+        background: #f0a541;
+    }
+    .bg-red {
+        background: #f40058;
+    }
+    .bg-green {
+        background: #41b853;
+    }
+
+
+.opacity {
+    opacity: 100%;
+}
+.z-index {
+    z-index: 1;
+}
+
+
+@media (max-width: 1140px) {
+    .font-size-vw {
+        font-size: 4vw;
+        overflow: hidden;
+    }
+    .container_recipe {
+        width: 85%;
+    }
 }

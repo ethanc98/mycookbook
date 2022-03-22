@@ -1,64 +1,69 @@
-<% layout('layouts/boilerplate') %>
+<!DOCTYPE html>
+<html lang="en">
 
-    <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
-        <div class="title">
-            <label for="title">Title:</label>
-            <input type="text" name="recipe[title]" id="title" value="<%= recipe.title %>">
-        </div>
-
-
-        <div class="ingredients">
-            <label for="ingredients">Ingredients:</label>
-            <% for (i=1; i <=ingNum; i++) { %>
-                <% let thingy2=recipe.ingredients[i-1] %>
-                    <% if (thingy2 !==undefined) { %>
-                        <div class="ingredient" id="ing<%= i %>Div">
-                            <input id="number<%= i %>" name="recipe[ingredients][<%= i %>][number]" type="hidden"
-                                value="<%= i %>">
-                            <input class="input" type="text" id="ing<%= i %>"
-                                name="recipe[ingredients][<%= i %>][ingredient]" value="<%= thingy2.ingredient %>">
-                            <button class="delete-btn" type="button" id="deleteIng<%= i %>" value="<%= i %>">x</button>
-                        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myCookbook | <%= recipe.title %> (editor)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/964b4f6dfb.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/editor.css">
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+        <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+            <div class="name recipe__section">
+                <label class="recipe__header" for="name">Recipe Name:</label>
+                <input class="input input_title" type="text" name="recipe[title]" id="title" maxlength="21" value="<%= recipe.title %>">
+            </div>
+            <div class="ingredients recipe__section">
+                <label class="recipe__header" for="ingredients">Ingredients:</label>
+                <% for (i=0; i <ingNum; i++) { %>
+                    <% let currentIng=recipe.ingredients[i] %>
+                        <% if (currentIng !== undefined) { %>
+                            <div class="ingredient" id="ing<%= i %>Div">
+                                <input id="number<%= i %>" name="recipe[ingredients][<%= i %>][number]" type="hidden"
+                                    value="<%= i %>">
+                                <input class="input" type="text" id="ing<%= i %>"
+                                    name="recipe[ingredients][<%= i %>][ingredient]" value="<%= currentIng.ingredient %>" required>
+                                <button class="button button_white button_delete" type="button" id="deleteIng<%= i %>" value="<%= i %>">x</button>
+                            </div>
                         <%} %>
-                            <% } %>
-        </div>
-        <button class="add-btn" id="addButtonIng" type="button">Add Ingredient</button>
-
-
-
-        <div class="steps">
-            <label for="steps">Method:</label>
-            <!-- <div class="step" id="step1Div">
-                <input id="number1" name="recipe[steps][1][number]" type="hidden" value="1">
-                <label for="step1">Step 1:</label>
-                <textarea type="text" id="step1" name="recipe[steps][1][step]"><%= recipe.steps[0].step %></textarea>
-                <button type="button" id="deleteStep1" value="1">x</button>
-            </div> -->
-
-            <% for (i=1; i <=stepNum; i++) { %>
-                <% let thingy=recipe.steps[i-1] %>
-                    <% if (thingy !==undefined) { %>
-                        <div class="step" id="step<%= i %>Div">
-                            <input id="number<%= i %>" name="recipe[steps][<%= i %>][number]" type="hidden"
-                                value="<%= i %>">
-                            <label for="step<%= i %>">Step <%= i %>: </label>
-                            <textarea type="text" id="step<%= i %>"
-                                name="recipe[steps][<%= i %>][step]"><%= thingy.step %></textarea>
-                            <button class="delete-btn" type="button" id="deleteStep<%= i %>" value="<%= i %>">x</button>
-                        </div>
+                <% } %>
+            </div>
+            <button class="button button_white button_add" id="addButtonIng" type="button">Add Ingredient</button>
+            <div class="steps recipe__section">
+                <label class="recipe__header" for="steps">Method:</label>
+                <% for (i=0; i <stepNum; i++) { %>
+                    <% let currentStep=recipe.steps[i] %>
+                        <% if (currentStep !== undefined) { %>
+                            <div class="step" id="step<%= i %>Div">
+                                <input id="number<%= i %>" name="recipe[steps][<%= i %>][number]" type="hidden"
+                                    value="<%= i+1 %>">
+                                <label class="step__label" for="step<%= i %>">Step <%= i+1 %>: </label>
+                                <textarea class="input input_textarea" type="text" id="step<%= i %>"
+                                    name="recipe[steps][<%= i %>][step]" required><%= currentStep.step %></textarea>
+                                <button class="button button_white button_delete" type="button" id="deleteStep<%= i %>" value="<%= i %>">x</button>
+                            </div>
                         <%} %>
-                            <% } %>
-        </div>
-        <button class="add-btn" id="addButton" type="button">Add Step</button>
-
-        <button class="submit">Update Recipe</button>
-        <span id="error" class="error-message"></span>
-    </form>
-
-    <a id="cancel" href="/recipes/<%=recipe._id%>">Cancel</a>
+                <% } %>
+            </div>
+            <button class="button button_white button_add" id="addButton" type="button">Add Step</button>
+            <button class="button button_white button_submit">Update Recipe</button>
+            <span id="error" class="error-message"></span>
+        </form>
+        <a class="button button_white button_cancel" id="cancel" href="/recipes/<%=recipe._id%>">Cancel</a>
+    </div>
+    <%- include('./partials/footer') %>
     <script>
         const stepNumCopy = <%=stepNum%>;
         const ingNumCopy = <%=ingNum%>
     </script>
     <script src="/edit/steps.js"></script>
     <script src="/edit/ingredients.js"></script>
+</body>
+</html>

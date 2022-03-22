@@ -1,20 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">myCookbook</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <!-- <a class="nav-link" href="/">Home</a> -->
-                <a class="nav-link" href="/recipes">all recipes</a>
+<header>
+    <ul class="navLinks">
+        <h1 id="nav1">myCookbook</h1>
+        <div class="nav2 menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger">
+                <div class="hamburger__line">
+                </div>
             </div>
-            <div class="navbar-nav ml-auto">
-                <!-- <a class="nav-link" href="/login">Login</a>
-                <a class="nav-link" href="/register">Register</a> -->
-                <a class="nav-link" href="/logout">Logout</a>
-            </div>
+            <ul class="menu">
+                <li><a class="hamburger__href" href="/recipes">My Recipes</a></li>
+                <li><a class="hamburger__href" href="/recipes/new">Create a New Recipe</a></li>
+                <li><a class="hamburger__href" href="/logout">Logout</a></li>
+            </ul>
         </div>
-    </div>
-</nav>
+    </ul>
+</header>
+
+

@@ -1,7 +1,7 @@
 const ings = document.querySelector(".ingredients");
 
-// tracks successive ing number
-let ingCount = 1;
+// tracks successive ing (ingredient) number
+let ingNum = 1;
 
 // listens for addStep call
 const addButtonIng = document.getElementById('addButtonIng');
@@ -11,7 +11,7 @@ addButtonIng.addEventListener('click', function () {
     storeAndUpdateIng(ingValue);
 });
 
-// listens for remove ing call
+// listens for remove ing (ingredient) call
 ings.onclick = async (e) => {
     if (e.target.tagName !== 'BUTTON') {
         console.log('Something else clicked...');
@@ -20,7 +20,7 @@ ings.onclick = async (e) => {
     const target = e.target;
     const ingValue = target.value;
     await target.parentElement.remove();
-    ingCount = ingCount - 1;
+    ingNum = ingNum - 1;
     storeAndUpdateIng(ingValue);
 };
 
@@ -39,22 +39,22 @@ const storeAndUpdateIng = (ingValue) => {
     }
 };
 
-// adds new ing
+// adds new ing (ingredient)
 const createIng = (btns, textValue, txt) => {
-    ingCount = ingCount + 1;
-    const newIng = `<div class="ingredient" id="ing${ingCount}Div">
-        <input name="recipe[ingredients][${ingCount}][number]" type="hidden" value="${ingCount}">
-        <input class="input" type="text" id="ing${ingCount}" name="recipe[ingredients][${ingCount}][ingredient]" required>
-        <button class="delete-btn" type="button" id="deleteIng${ingCount}" value="${ingCount}">x</button>
+    ingNum = ingNum + 1;
+    const newIng = `<div class="ingredient" id="ing${ingNum}Div">
+        <input name="recipe[ingredients][${ingNum}][number]" type="hidden" value="${ingNum}">
+        <input class="input" type="text" id="ing${ingNum}" name="recipe[ingredients][${ingNum}][ingredient]" required>
+        <button class="button button_white button_delete" type="button" id="deleteIng${ingNum}" value="${ingNum}">x</button>
         </div>`;
     ings.innerHTML += newIng;
-    textValue[ingCount - 1] = '';
+    textValue[ingNum - 1] = '';
     for (let i = 0; i < btns.length; i++) {
         txt[i].value = textValue[i]
     }
 };
 
-// updates HTML with new ing postion
+// updates HTML with new ing (ingredient) postion
 const updateHTMLIng = (btns, textValue, txt, ingValue) => {
     for (let i = 0; i < btns.length; i++) {
         const parsedValue = Number(btns[i].value);
@@ -63,7 +63,7 @@ const updateHTMLIng = (btns, textValue, txt, ingValue) => {
             btns[i].parentElement.outerHTML = `<div class="ingredient" id="ing${j}Div">
             <input id="number${j}" name="recipe[ingredients][${j}][ingredient]" type="hidden" value="${j}">
             <input class="input" type="text" id="ing${j}" name="recipe[ingredients][${j}][ingredient]" required>
-            <button class="delete-btn" type="button" id="deleteIng${j}" value="${j}">x</button>
+            <button class="button button_white button_delete" type="button" id="deleteIng${j}" value="${j}">x</button>
             </div>`;
             console.log(i)
         }

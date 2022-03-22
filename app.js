@@ -15,7 +15,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 
-const userRoutes = require('./routes/users');
+const entryRoutes = require('./routes/entry');
 const recipeRoutes = require('./routes/recipes');
 
 const MongoDBStore = require('connect-mongo');
@@ -88,7 +88,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/', userRoutes);
+app.use('/', entryRoutes);
 app.use('/recipes', recipeRoutes);
 
 app.all('*', (req, res, next) => {
@@ -101,7 +101,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Serving on Port ${port}`)
 });

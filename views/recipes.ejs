@@ -1,14 +1,28 @@
-<% layout('layouts/boilerplate') %>
-    <a id="link" href="/recipes/new">Create a Recipe</a>
+<!DOCTYPE html>
+<html lang="en">
 
-    <div id="recipes">
-        <% for(let recipe of recipes) {%>
-            <div class="recipe">
-                <h3 class="recipe-title">
-                    <%= recipe.title %>
-                </h3>
-                <a href="/recipes/<%= recipe._id %> ">Go to Recipe</a>
-            </div>
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myCookbook | My Recipes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/964b4f6dfb.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/recipes.css">
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+        <div class="recipes">
+            <% for(let recipe of recipes) {%>
+                <div class="recipes__recipe">
+                    <a class="heading heading_recipe font-size-vw" href="/recipes/<%= recipe._id %> "><%= recipe.title %></a>
+                </div>
             <% } %>
+        </div>
     </div>
+    <%- include('./partials/footer') %>
+</body>
+</html>
