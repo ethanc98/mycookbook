@@ -94,7 +94,7 @@ router.post('/forgot', (req, res, next) => {
             });
             const mailOptions = {
                 to: user.email,
-                from: '***REMOVED***',
+                from: 'mycookbook@ethancalnan.com',
                 subject: 'myCookbook Password Reset',
                 text: 'You are receiving this because someone requested a password reset for your account.\n\n' +
                     'Please click on the following link (or paste into your browser) to complete the process:\n\n' +

@@ -24,6 +24,7 @@
     padding-left: 2.5rem;
     width: 100%;
     text-align: left;
+    overflow: hidden;
 }
 .recipe__recipe {
     text-align: center;
@@ -141,7 +142,6 @@
 @media (max-width: 1140px) {
     .font-size-vw {
         font-size: 4vw;
-        overflow: hidden;
     }
     .container_recipe {
         width: 85%;
