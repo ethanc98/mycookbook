@@ -12,7 +12,8 @@ addButtonIng.addEventListener('click', function () {
 
 // listens for remove ingredient call
 ings.onclick = async (e) => {
-    if (e.target.tagName !== 'BUTTON') {
+    // checks if button has been clicked and if button is first of type
+    if (e.target.tagName !== 'BUTTON' || e.target.value == 0) {
         return;
     }
     const target = e.target;

@@ -12,7 +12,7 @@ addButton.addEventListener('click', function () {
 
 // listens for remove step call
 steps.onclick = async (e) => {
-    if (e.target.tagName !== 'BUTTON') {
+    if (e.target.tagName !== 'BUTTON' || e.target.value == 1) {
         return;
     }
     const target = e.target;

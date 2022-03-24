@@ -12,8 +12,8 @@ addButton.addEventListener('click', function () {
 
 // listens for remove step call
 steps.onclick = async (e) => {
-    if (e.target.tagName !== 'BUTTON') {
-        console.log('Something else clicked...');
+    // checks if button has been clicked and if button is first of type
+    if (e.target.tagName !== 'BUTTON' || e.target.value == 0) {
         return;
     }
     const target = e.target;

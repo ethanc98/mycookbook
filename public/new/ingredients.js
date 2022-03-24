@@ -13,8 +13,8 @@ addButtonIng.addEventListener('click', function () {
 
 // listens for remove ing (ingredient) call
 ings.onclick = async (e) => {
-    if (e.target.tagName !== 'BUTTON') {
-        console.log('Something else clicked...');
+    // checks if button has been clicked and if button is first of type
+    if (e.target.tagName !== 'BUTTON' || e.target.value == 1) {
         return;
     }
     const target = e.target;
