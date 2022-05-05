@@ -24,11 +24,9 @@ module.exports.isEmpty = (req, res, next) => {
     const steps = req.body.recipe.steps;
 
     for (i = 0; i < steps.length; i++) {
-        // console.log(steps[i].step);
         if (steps[i].step === '') {
             const msg = 'Please leave no fields blank';
             res.send("<p>Please enter a valid number</p>");
         }
-        // throw new ExpressError(msg, 400)
     } next();
 }
